@@ -1,27 +1,90 @@
 # Globals
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+[![Build Status](https://travis-ci.org/angeeks/globals.svg?branch=master)](https://travis-ci.org/angeeks/globals)
+[![npm version](https://badge.fury.io/js/%40angeeks%2Ftesting.svg)](https://www.npmjs.com/package/@angeeks/globals)
 
-## Development server
+A small useful piece for globals seperation.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Installation
 
-## Code scaffolding
+```
+  npm i -P @angeeks/globals
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# :construction: Usage
 
-## Build
+```
+import { GlobalsModule } from '@angkees/globals';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+@NgModule({
+  imports: [
+    ...,
+    GlobalsModule.forPlatform('browser')
+  ]
+})
+```
 
-## Running unit tests
+That's it, now you can use globals in as injectables.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+import { Globals } from '@angkees/globals';
+class AppComponent {
+  constructor(globals: Globals) {
+    globals.window.open('http://google.com', 'blank');
+    globals.localStorage.set('key', 'value');
+  }
+}
+```
 
-## Running end-to-end tests
+# Advanced Usage
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## :construction: Inject only required symbols
 
-## Further help
+```
+import { GlobalsModule, GlobalSymbol } from '@angkees/globals';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  imports: [
+    ...,
+    GlobalsModule.forRoot([
+      GlobalSymbol.document,
+      GlobalSymbol.window
+    ])
+  ]
+})
+```
+
+## :construction: Inject customed symbols
+
+
+```
+import { GlobalsModule, GlobalToken } from '@angkees/globals';
+
+@NgModule({
+  imports: [
+    ...,
+    GlobalsModule.forRoot()
+  ],
+  providers: [
+    { provide: GlobalToken.window, useValue: { window: 'for test' } }
+  ]
+})
+```
+
+## :construction: Testability
+
+Provide common global apis for tests.
+
+```
+import { GlobalsTestingModule } from '@angkees/globals/testing';
+
+@NgModule({
+  imports: [
+    ...,
+    GlobalsTestingModule.forPlatform('browser')
+  ],
+  providers: [
+    { provide: GlobalTestingModule.window, useValue: { window: 'for test' } }
+  ]
+})
+```

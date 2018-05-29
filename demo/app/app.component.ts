@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Globals } from '@angeeks/globals';
 
 @Component({
   selector: 'ngk-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngk';
+  docTitle = '';
+  constructor(private g: Globals) {
+    this.docTitle = g.document.title;
+  }
 }

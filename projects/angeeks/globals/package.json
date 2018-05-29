@@ -1,0 +1,30 @@
+{
+  "name": "@angeeks/globals",
+  "version": "0.0.1",
+  "description": "A small useful piece for globals seperation.",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "global",
+    "global variables",
+    "window",
+    "window interface",
+    "document",
+    "unit test"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angeeks/globals.git"
+  },
+  "homepage": "https://angeeks.github.io/globals",
+  "bugs": {
+    "url": "https://github.com/angeeks/globals/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  }
+}

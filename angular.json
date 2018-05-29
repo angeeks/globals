@@ -120,6 +120,46 @@
           }
         }
       }
+    },
+    "@angeeks/globals": {
+      "root": "projects/angeeks/globals",
+      "sourceRoot": "projects/angeeks/globals/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angeeks/globals/tsconfig.lib.json",
+            "project": "projects/angeeks/globals/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/angeeks/globals/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angeeks/globals/src/test.ts",
+            "tsConfig": "projects/angeeks/globals/tsconfig.spec.json",
+            "karmaConfig": "projects/angeeks/globals/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angeeks/globals/tsconfig.lib.json",
+              "projects/angeeks/globals/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "globals"

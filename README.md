@@ -19,7 +19,7 @@ import { GlobalsModule } from '@angkees/globals';
 @NgModule({
   imports: [
     ...,
-    GlobalsModule.forPlatform('browser')
+    GlobalsModule
   ]
 })
 ```
@@ -29,62 +29,29 @@ That's it, now you can use globals in as injectables.
 ```
 import { Globals } from '@angkees/globals';
 class AppComponent {
-  constructor(globals: Globals) {
-    globals.window.open('http://google.com', 'blank');
-    globals.localStorage.set('key', 'value');
+  constructor(g: Globals) {
+    g.window.open('http://google.com', 'blank');
+    g.console.log(g.document.body);
+    g.localStorage.set('key', 'value');
   }
 }
 ```
 
 # Advanced Usage
 
-## :construction: Inject only required symbols
-
-```
-import { GlobalsModule, GlobalSymbol } from '@angkees/globals';
-
-@NgModule({
-  imports: [
-    ...,
-    GlobalsModule.forRoot([
-      GlobalSymbol.document,
-      GlobalSymbol.window
-    ])
-  ]
-})
-```
-
 ## :construction: Inject customed symbols
 
 
 ```
-import { GlobalsModule, GlobalToken } from '@angkees/globals';
+import { GlobalsModule, windowToken } from '@angkees/g';
 
 @NgModule({
   imports: [
     ...,
-    GlobalsModule.forRoot()
+    GlobalsModule
   ],
   providers: [
-    { provide: GlobalToken.window, useValue: { window: 'for test' } }
-  ]
-})
-```
-
-## :construction: Testability
-
-Provide common global apis for tests.
-
-```
-import { GlobalsTestingModule } from '@angkees/globals/testing';
-
-@NgModule({
-  imports: [
-    ...,
-    GlobalsTestingModule.forPlatform('browser')
-  ],
-  providers: [
-    { provide: GlobalTestingModule.window, useValue: { window: 'for test' } }
+    { provide: windowToken, useValue: { window: 'for test' } }
   ]
 })
 ```

@@ -8,6 +8,8 @@ install:
   - npm i
 script:
   - npx ng lint
+  - npx ng test @angeeks/globals --watch=false
+  - npx ng build @angeeks/globals --prod
   - npx ng test globals --watch=false
   - npx ng build globals --prod --base-href globals
 cache:

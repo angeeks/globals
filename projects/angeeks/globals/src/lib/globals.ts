@@ -8,7 +8,7 @@ export class Globals {
   window: Window;
   [key: string]: any;
   constructor(@Inject(windowToken) wnd: any) {
-    Object.keys(wnd).forEach(k => {
+    Object.getOwnPropertyNames(wnd).forEach(k => {
       this[k] = wnd[k];
     });
     if (!this.window) {

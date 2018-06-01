@@ -11,7 +11,7 @@ A small useful piece for globals seperation.
   npm i -P @angeeks/globals
 ```
 
-# :construction: Usage
+# Usage
 
 ```
 import { GlobalsModule } from '@angkees/globals';
@@ -39,11 +39,11 @@ class AppComponent {
 
 # Advanced Usage
 
-## :construction: Inject customed symbols
+## Inject customed symbols
 
 
 ```
-import { GlobalsModule, windowToken } from '@angkees/g';
+import { GlobalsModule, windowToken } from '@angkees/globals';
 
 @NgModule({
   imports: [

@@ -13,7 +13,7 @@ A small useful piece for globals seperation.
 
 # Usage
 
-```
+```typescript
 import { GlobalsModule } from '@angkees/globals';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { GlobalsModule } from '@angkees/globals';
 
 That's it, now you can use globals in as injectables.
 
-```
+```typescript
 import { Globals } from '@angkees/globals';
 class AppComponent {
   constructor(g: Globals) {
@@ -42,7 +42,7 @@ class AppComponent {
 ## Inject customed symbols
 
 
-```
+```typescript
 import { GlobalsModule, windowToken } from '@angkees/globals';
 
 @NgModule({

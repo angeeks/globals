@@ -1,7 +1,7 @@
 # Globals
 
 [![Build Status](https://travis-ci.org/angeeks/globals.svg?branch=master)](https://travis-ci.org/angeeks/globals)
-[![npm version](https://badge.fury.io/js/%40angeeks%2Ftesting.svg)](https://www.npmjs.com/package/@angeeks/globals)
+[![npm version](https://badge.fury.io/js/%40angeeks%2Fglobals.svg)](https://www.npmjs.com/package/@angeeks/globals)
 
 A small useful piece for globals seperation.
 
